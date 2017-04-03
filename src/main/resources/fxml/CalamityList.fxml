@@ -33,12 +33,13 @@
                </Button>
             </children>
          </HBox>
-            <TableView prefHeight="500.0" prefWidth="200.0">
+            <TableView prefHeight="500.0" prefWidth="571.0">
               <columns>
                 <TableColumn prefWidth="133.0" text="Calamity" />
+                  <TableColumn prefWidth="116.0" text="Date" />
                 <TableColumn prefWidth="131.0" text="Location" />
-                  <TableColumn prefWidth="145.0" text="Alerted by" />
-                  <TableColumn prefWidth="76.0" text="Time" />
+                  <TableColumn prefWidth="111.0" text="Alerted by" />
+                  <TableColumn prefWidth="79.0" text="Status" />
               </columns>
             </TableView>
             <HBox prefWidth="200.0">
