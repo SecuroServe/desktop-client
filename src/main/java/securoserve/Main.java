@@ -16,7 +16,6 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Login.fxml"));
 
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setAlwaysOnTop(true);
         primaryStage.setResizable(false);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
