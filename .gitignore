@@ -1,0 +1,5 @@
+/.gradle/
+/build/
+/desktop-client.iml
+/gradle*
+/src/main/resources/images/
