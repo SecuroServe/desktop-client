@@ -1,74 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<StackPane stylesheets="@../css/general.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="securoserve.ui.controller.LoginController">
-   <children>
-      <VBox spacing="20.0">
-         <children>
-            <HBox alignment="CENTER_RIGHT">
-               <children>
-                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/logo-small.png"/>
-                     </image>
-                  </ImageView>
-                  <Label styleClass="logo-text" text="SecuroServe" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font size="25.0"/>
-                     </font>
-                     <HBox.margin>
-                        <Insets left="30.0" right="50.0" top="20.0"/>
-                     </HBox.margin>
-                  </Label>
-                  <Region HBox.hgrow="ALWAYS"/>
-                  <Button fx:id="closeButton" alignment="TOP_RIGHT" contentDisplay="CENTER" mnemonicParsing="false"
-                          styleClass="close-button" text="X" textAlignment="CENTER" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="12.0"/>
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="20.0"/>
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-            <GridPane vgap="10.0">
-               <children>
-                  <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-                  <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                  <TextField fx:id="user" promptText="Please enter your username" GridPane.columnIndex="1"
-                             GridPane.hgrow="ALWAYS" GridPane.rowIndex="0"/>
-                  <TextField fx:id="password" promptText="Please enter your password" GridPane.columnIndex="1"
-                             GridPane.rowIndex="1"/>
-               </children>
-               <columnConstraints>
-                  <ColumnConstraints hgrow="NEVER" prefWidth="80.0"/>
-                  <ColumnConstraints hgrow="NEVER" prefWidth="200.0"/>
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints prefHeight="30.0" vgrow="NEVER"/>
-                  <RowConstraints prefHeight="30.0" vgrow="NEVER"/>
-               </rowConstraints>
-               <VBox.margin>
-                  <Insets/>
-               </VBox.margin>
-            </GridPane>
-            <StackPane>
-               <children>
-                  <Button fx:id="loginButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false"
-                          styleClass="login-button" text="Login" StackPane.alignment="CENTER_RIGHT"/>
-               </children>
-            </StackPane>
-         </children>
-      </VBox>
-   </children>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
+<StackPane stylesheets="@../css/flatterfx.css" xmlns="http://javafx.com/javafx/8.0.60"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="securoserve.ui.controller.LoginController">
+    <children>
+        <VBox spacing="40.0">
+            <children>
+                <HBox alignment="BOTTOM_CENTER">
+                    <children>
+                        <Label text="Welcome to SecuroServe">
+                            <font>
+                                <Font size="35.0"/>
+                            </font>
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Label>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/logo.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <GridPane vgap="10.0">
+                    <children>
+                        <Label text="Username" GridPane.columnIndex="0">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                        </Label>
+                        <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="user" promptText="Please enter your username" GridPane.columnIndex="1"
+                                   GridPane.hgrow="ALWAYS">
+                            <GridPane.margin>
+                                <Insets/>
+                            </GridPane.margin>
+                        </TextField>
+                        <TextField fx:id="password" promptText="Please enter your password" GridPane.columnIndex="1"
+                                   GridPane.rowIndex="1"/>
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints prefWidth="100.0"/>
+                        <ColumnConstraints prefWidth="400.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                    </rowConstraints>
+                    <VBox.margin>
+                        <Insets bottom="10.0"/>
+                    </VBox.margin>
+                </GridPane>
+                <HBox>
+                    <children>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="loginButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false"
+                                prefWidth="150.0" text="Login"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="30.0"/>
+    </padding>
 </StackPane>
