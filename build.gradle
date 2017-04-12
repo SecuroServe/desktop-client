@@ -3,12 +3,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE')
     }
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
@@ -25,9 +24,10 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter")
-    compile("org.springframework:spring-web")
-    compile("com.fasterxml.jackson.core:jackson-databind")
-    testCompile("junit:junit")
-    compile 'io.airlift:json:0.145'
+    compile project(':web-api')
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('org.springframework:spring-web')
+    compile('com.fasterxml.jackson.core:jackson-databind')
+    compile('com.guigarage:flatter:0.7')
+    testCompile('junit:junit')
 }

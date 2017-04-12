@@ -21,9 +21,11 @@ public class LoginController implements Initializable {
 
     @FXML
     public void handleLoginAction(ActionEvent event) {
+
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("test");
         alert.setContentText("De knop is geklikt.");
         alert.showAndWait();
     }
+
 }
