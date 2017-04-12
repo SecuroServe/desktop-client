@@ -8,39 +8,7 @@
     src: url('../fonts/roboto/Roboto-Light.ttf');
 }
 
-/*.root, .label {*/
-/*-fx-font-family: Tahoma, Geneva, sans-serif;*/
-/*}*/
-
 .logo-text {
     -fx-font-family: 'Roboto Light', Helvetica, sans-serif;
     -fx-font-size: 30;
 }
-
-/*.button {*/
-/*!*-fx-background-radius: 12;*!*/
-/*-fx-padding: 10;*/
-/*-fx-shadow-highlight-color: f0f0f0;*/
-/*-fx-body-color: linear-gradient(from 0em 0em to 0em 2.083333em, white, #D7D7D7, white);*/
-/*}*/
-
-/*.login-button {*/
-/*-fx-background-color: linear-gradient(from 0em 0em to 0em 2.083333em, #49a0ff, #1e64e8, #227cff);*/
-/*-fx-border-width: 0;*/
-/*-fx-text-fill: #ffffff;*/
-/*-fx-font-weight: bold;*/
-/*}*/
-
-/*.close-button {*/
-/*-fx-background-color: #f44;*/
-/*-fx-background-radius: 15;*/
-/*-fx-padding: 5 10;*/
-/*}*/
-
-/*.close-button:hover {*/
-/*-fx-background-color: #ff8080;*/
-/*}*/
-
-/*.text-field, .password-field {*/
-/*-fx-padding: 10;*/
-/*}*/
