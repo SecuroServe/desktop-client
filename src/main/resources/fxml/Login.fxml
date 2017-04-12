@@ -6,14 +6,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<StackPane prefWidth="600.0" stylesheets="@../css/flatterfx.css" xmlns="http://javafx.com/javafx/8.0.60"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="securoserve.ui.controller.LoginController">
+<?import java.net.URL?>
+<StackPane prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="securoserve.ui.controller.LoginController">
     <children>
         <VBox spacing="10.0" StackPane.alignment="CENTER">
             <children>
                 <HBox alignment="BOTTOM_CENTER">
                     <children>
-                        <Label text="Welcome to SecuroServe">
+                        <Label styleClass="logo-text" text="Welcome to SecuroServe">
                             <font>
                                 <Font size="34.0"/>
                             </font>
@@ -57,4 +58,8 @@
     <padding>
         <Insets bottom="30.0" left="50.0" right="50.0" top="30.0"/>
     </padding>
+    <stylesheets>
+        <URL value="@../css/flatterfx.css"/>
+        <URL value="@../css/general.css"/>
+    </stylesheets>
 </StackPane>
