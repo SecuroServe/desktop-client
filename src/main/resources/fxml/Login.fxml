@@ -6,20 +6,17 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<StackPane stylesheets="@../css/flatterfx.css" xmlns="http://javafx.com/javafx/8.0.60"
+<StackPane prefWidth="600.0" stylesheets="@../css/flatterfx.css" xmlns="http://javafx.com/javafx/8.0.60"
            xmlns:fx="http://javafx.com/fxml/1" fx:controller="securoserve.ui.controller.LoginController">
     <children>
-        <VBox spacing="40.0">
+        <VBox spacing="10.0" StackPane.alignment="CENTER">
             <children>
                 <HBox alignment="BOTTOM_CENTER">
                     <children>
                         <Label text="Welcome to SecuroServe">
                             <font>
-                                <Font size="35.0"/>
+                                <Font size="34.0"/>
                             </font>
-                            <HBox.margin>
-                                <Insets/>
-                            </HBox.margin>
                         </Label>
                         <Region HBox.hgrow="ALWAYS"/>
                         <ImageView fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
@@ -28,48 +25,36 @@
                             </image>
                         </ImageView>
                     </children>
-                </HBox>
-                <GridPane vgap="10.0">
-                    <children>
-                        <Label text="Username" GridPane.columnIndex="0">
-                            <GridPane.margin>
-                                <Insets/>
-                            </GridPane.margin>
-                        </Label>
-                        <Label text="Password" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-                        <TextField fx:id="user" promptText="Please enter your username" GridPane.columnIndex="1"
-                                   GridPane.hgrow="ALWAYS">
-                            <GridPane.margin>
-                                <Insets/>
-                            </GridPane.margin>
-                        </TextField>
-                        <TextField fx:id="password" promptText="Please enter your password" GridPane.columnIndex="1"
-                                   GridPane.rowIndex="1"/>
-                    </children>
-                    <columnConstraints>
-                        <ColumnConstraints prefWidth="100.0"/>
-                        <ColumnConstraints prefWidth="400.0"/>
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints/>
-                        <RowConstraints/>
-                    </rowConstraints>
                     <VBox.margin>
-                        <Insets bottom="10.0"/>
+                        <Insets bottom="30.0"/>
                     </VBox.margin>
-                </GridPane>
-                <HBox>
+                </HBox>
+                <TextField fx:id="user" promptText="Please enter your username"/>
+                <PasswordField promptText="Please enter your password"/>
+                <HBox spacing="10.0">
                     <children>
                         <Region HBox.hgrow="ALWAYS"/>
                         <Button fx:id="loginButton" alignment="CENTER" defaultButton="true" mnemonicParsing="false"
-                                prefWidth="150.0" text="Login"/>
-                        <Region HBox.hgrow="ALWAYS"/>
+                                prefWidth="150.0" style="-fx-background-color: #555;" text="Cancel">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
+                        <Button fx:id="loginButton1" alignment="CENTER" defaultButton="true" mnemonicParsing="false"
+                                prefWidth="150.0" text="Login">
+                            <HBox.margin>
+                                <Insets/>
+                            </HBox.margin>
+                        </Button>
                     </children>
+                    <VBox.margin>
+                        <Insets top="30.0"/>
+                    </VBox.margin>
                 </HBox>
             </children>
         </VBox>
     </children>
     <padding>
-        <Insets bottom="25.0" left="25.0" right="25.0" top="30.0"/>
+        <Insets bottom="30.0" left="50.0" right="50.0" top="30.0"/>
     </padding>
 </StackPane>
