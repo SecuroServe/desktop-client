@@ -17,6 +17,20 @@
     -fx-font-size: 30;
 }
 
+.calamity-list {
+    -fx-font-size: 14;
+    -fx-font-style: normal;
+}
+
+.table-view .column-header {
+    -fx-background-color: -flatter-red;
+}
+
+.calamity-list .column-header.foo .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bolder;
+}
+
 /*.button {*/
 /*!*-fx-background-radius: 12;*!*/
 /*-fx-padding: 10;*/

@@ -8,6 +8,8 @@ import securoserve.library.Calamity;
 import securoserve.library.Location;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -49,7 +51,14 @@ public class CalamityRequest implements ICalamity {
 
     @Override
     public List<Calamity> allCalamity() {
-        return null;
+        Calamity[] calamities = restTemplate.getForObject(REQUEST_PREFIX + GET_ALL, Calamity[].class);
+        List<Calamity> returnValue = new ArrayList<>();
+
+        for(Calamity c : calamities){
+            returnValue.add(c);
+        }
+
+        return returnValue;
     }
 
     @Override
@@ -63,7 +72,7 @@ public class CalamityRequest implements ICalamity {
     }
 
     @Override
-    public ConfirmationMessage updateCalamity(@RequestParam("token") String s, @RequestParam("id") int i, @RequestParam("name") String s1, @RequestParam("description") String s2, @RequestParam("location") Location location) {
+    public ConfirmationMessage updateCalamity(String token, int id, String name, String description, Location location, boolean isConfirmed, boolean isClosed) {
         return null;
     }
 
