@@ -25,7 +25,6 @@ public class LoginController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("test");
         alert.setContentText("De knop is geklikt.");
-
         alert.showAndWait();
     }
 

@@ -1,11 +1,56 @@
+.root{
+    -dark: rgb(47.0, 52.0, 57.0);
+}
+
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url('../fonts/roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Roboto Light';
+    src: url('../fonts/roboto/Roboto-Light.ttf');
+}
+
 /*.root, .label {*/
 /*-fx-font-family: Tahoma, Geneva, sans-serif;*/
 /*}*/
 
-/*.logo-text {*/
-/*-fx-font-family: "Trebuchet MS", Helvetica, sans-serif;*/
-/*-fx-font-weight: normal;*/
-/*}*/
+.logo-text {
+    -fx-font-family: 'Roboto Light', Helvetica, sans-serif;
+    -fx-font-size: 30;
+}
+
+.calamity-list {
+    -fx-font-size: 14;
+    -fx-font-style: normal;
+}
+
+.table-view .column-header {
+    -fx-background-color: rgb(237.0, 68.0, 37.0);
+}
+
+.calamity-list .column-header.foo .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bolder;
+}
+
+.title {
+    -fx-font-size: 30;
+}
+
+.text-area {
+    -fx-background-color: #ff8080;
+    -fx-font-size: 12;
+}
+
+.creatorlabel {
+    -fx-font-size: 20;
+}
+
+.datelabel {
+    -fx-font-size: 14;
+}
 
 /*.button {*/
 /*!*-fx-background-radius: 12;*!*/
