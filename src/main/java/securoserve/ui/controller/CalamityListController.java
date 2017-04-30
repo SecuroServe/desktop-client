@@ -117,7 +117,7 @@ public class CalamityListController implements Initializable {
     }
 
     private void refreshCalamityTable() {
-        CalamityRequestTest calamityRequest = new CalamityRequestTest();
+        CalamityRequest calamityRequest = new CalamityRequest();
         calamities = calamityRequest.allCalamity();
 
         obsList = FXCollections.observableArrayList(calamities);

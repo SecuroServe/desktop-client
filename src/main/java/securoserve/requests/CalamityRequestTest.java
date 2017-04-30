@@ -1,6 +1,5 @@
 package securoserve.requests;
 
-import securoserve.api.enums.BuildingType;
 import securoserve.api.interfaces.ConfirmationMessage;
 import securoserve.api.interfaces.ICalamity;
 import securoserve.library.*;
@@ -14,11 +13,11 @@ import java.util.List;
  */
 public class CalamityRequestTest implements ICalamity {
 
-    Location l = new Location(3.6f, 3.6f, 3.6f);
+    Location l = new Location(1, 20.3, 20.3, 1.0);
     Date date = new Date(System.currentTimeMillis());
 
-    Building building_1 = new Building(1, l, BuildingType.FIRE_DEPARTMENT, "Brandweer Kazerne Eindhoven");
-    Building building_2 = new Building(2, l, BuildingType.HOSPITAL, "Ziekenhuis Eindhoven");
+    Building building_1 = new Building( 1, l, Building.BuildingType.FIRE_DEPARTMENT, "Brandweer Kazerne Eindhoven");
+    Building building_2 = new Building( 2, l, Building.BuildingType.HOSPITAL, "Ziekenhuis Eindhoven");
 
     User henk = new User(1, null, null, building_1, "Henk", "henkdeman@gmail.com", "Eindhoven", "abcdefghijklmnop");
 
