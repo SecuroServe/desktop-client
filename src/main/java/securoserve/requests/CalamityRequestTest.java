@@ -22,7 +22,7 @@ public class CalamityRequestTest implements ICalamity {
 
     User henk = new User(1, null, null, building_1, "Henk", "henkdeman@gmail.com", "Eindhoven", "abcdefghijklmnop");
 
-    Calamity calamity_1 = new Calamity(1, l, henk, true, false, date, "Aanslag TU Eindhoven", "In het Hoofdgebouw van de TU in eindhoven zijn bommen ontploft. Het gaat om een spijkerbom. Veel gewonden waarbij waarschijnlijk ook doden. Dit is nog niet bevestigd.");
+    Calamity calamity_1 = new Calamity(1, l, henk, true, false, date, "Aanslag TU Eindhoven", "In het hoofdgebouw van de TU in eindhoven zijn bommen ontploft. Het gaat om een spijkerbom. Veel gewonden waarbij waarschijnlijk ook doden. Dit is nog niet bevestigd.");
 
     User piet = new User(2, null, calamity_1, building_2, "Piet", "pietertje007@gmail.com", "Helmond", "xyzdoenooknogmee");
 

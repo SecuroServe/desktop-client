@@ -1,3 +1,7 @@
+.root{
+    -dark: rgb(47.0, 52.0, 57.0);
+}
+
 @font-face {
     font-family: 'Roboto Regular';
     src: url('../fonts/roboto/Roboto-Regular.ttf');
@@ -23,12 +27,29 @@
 }
 
 .table-view .column-header {
-    -fx-background-color: -flatter-red;
+    -fx-background-color: rgb(237.0, 68.0, 37.0);
 }
 
 .calamity-list .column-header.foo .label {
     -fx-text-fill: white;
     -fx-font-weight: bolder;
+}
+
+.title {
+    -fx-font-size: 30;
+}
+
+.text-area {
+    -fx-background-color: #ff8080;
+    -fx-font-size: 12;
+}
+
+.creatorlabel {
+    -fx-font-size: 20;
+}
+
+.datelabel {
+    -fx-font-size: 14;
 }
 
 /*.button {*/
