@@ -9,7 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import securoserve.Main;
 import securoserve.api.interfaces.ConfirmationMessage;
-import securoserve.library.User;
+import securoserve.library.*;
 import securoserve.requests.LoginRequest;
 import securoserve.requests.UserRequest;
 
@@ -54,6 +54,19 @@ public class LoginController implements Initializable {
 
             LinkedHashMap<String,?> values = (LinkedHashMap<String,?>) result.getReturnObject();
             //TODO Create user with values
+
+            Object id = values.get("id");
+            Object userType = values.get("userType");
+            Object assignedCalamity = values.get("assignedCalamity");
+            Object building = values.get("building");
+            Object username = values.get("username");
+            Object email = values.get("email");
+            Object city = values.get("city");
+            Object tokenU = values.get("token");
+
+            User u = new User((int) id, (UserType) userType, (Calamity) assignedCalamity, (Building) building, (String) username, (String) email, (String) city, (String) tokenU);
+
+            System.out.println(u.getToken());
 
         } else if(result.getStatus().equals(ConfirmationMessage.StatusType.ERROR)) {
             Alert a = new Alert(Alert.AlertType.ERROR);
