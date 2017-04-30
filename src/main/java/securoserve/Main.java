@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import securoserve.library.Calamity;
 import securoserve.ui.controller.CalamityDetailsController;
 import securoserve.ui.controller.CalamityListController;
+import securoserve.ui.controller.LoginController;
 
 import java.io.IOException;
 
@@ -21,7 +22,15 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
+        //loadLogin();
         loadCalamityList();
+    }
+
+    public void loadLogin() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+        LoginController controller = new LoginController(this);
+        fxmlLoader.setController(controller);
+        setStage(fxmlLoader.load());
     }
 
     public void loadCalamityList() throws IOException {
