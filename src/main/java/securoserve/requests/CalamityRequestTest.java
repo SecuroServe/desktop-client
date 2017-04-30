@@ -15,7 +15,7 @@ public class CalamityRequestTest implements ICalamity {
 
     private String userToken;
 
-    Location l = new Location(1, 20.3, 20.3, 1.0);
+    Location l = new Location(1, 6.356789, 5.389779, 1.0);
     Date date = new Date(System.currentTimeMillis());
 
     Building building_1 = new Building( 1, l, Building.BuildingType.FIRE_DEPARTMENT, "Brandweer Kazerne Eindhoven");

@@ -101,11 +101,6 @@ public class CalamityListController implements Initializable {
         calamityName.setCellValueFactory(new PropertyValueFactory<Calamity, String>("title"));
         calamityTable.getColumns().add(calamityName);
 
-        TableColumn calamityDate = new TableColumn("Date");
-        calamityDate.getStyleClass().add("foo");
-        calamityDate.setCellValueFactory(new PropertyValueFactory<Calamity, Date>("date"));
-        calamityTable.getColumns().add(calamityDate);
-
         TableColumn calamityLocation = new TableColumn("Location");
         calamityLocation.getStyleClass().add("foo");
         calamityLocation.setCellValueFactory(new PropertyValueFactory<Calamity, Location>("location"));
@@ -120,6 +115,11 @@ public class CalamityListController implements Initializable {
         calamityStatus.getStyleClass().add("foo");
         calamityStatus.setCellValueFactory(new PropertyValueFactory<Calamity, Calamity.CalamityState>("state"));
         calamityTable.getColumns().add(calamityStatus);
+
+        TableColumn calamityDate = new TableColumn("Date");
+        calamityDate.getStyleClass().add("foo");
+        calamityDate.setCellValueFactory(new PropertyValueFactory<Calamity, Date>("date"));
+        calamityTable.getColumns().add(calamityDate);
     }
 
     private void refreshCalamityTable() {
