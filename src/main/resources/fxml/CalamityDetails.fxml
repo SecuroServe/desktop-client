@@ -23,7 +23,7 @@
                <Region prefHeight="27.0" prefWidth="172.0" HBox.hgrow="ALWAYS" />
                   <ImageView fitHeight="56.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="images/logo.png" />
+                        <Image url="@../images/logo.png" />
                      </image>
                   </ImageView>
             </children>
