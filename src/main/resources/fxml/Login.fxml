@@ -41,7 +41,7 @@
                 <HBox spacing="10.0">
                     <children>
                         <Region HBox.hgrow="ALWAYS" />
-                        <Button fx:id="cancelBtn" alignment="CENTER" defaultButton="true" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #555;" text="Cancel">
+                        <Button fx:id="cancelBtn" alignment="CENTER" defaultButton="true" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #555;" text="Quit">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>

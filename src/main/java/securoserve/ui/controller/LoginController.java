@@ -27,6 +27,8 @@ public class LoginController implements Initializable {
     @FXML
     public Button loginBtn;
     @FXML
+    public Button cancelBtn;
+    @FXML
     public TextField user;
     @FXML
     public TextField password;
@@ -38,9 +40,13 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loginBtn.setOnAction(this::handleLoginAction);
+        cancelBtn.setOnAction(this::handleExitAction);
     }
 
-    @FXML
+    private void handleExitAction(ActionEvent actionEvent) {
+        System.exit(1);
+    }
+
     public void handleLoginAction(ActionEvent event) {
         LoginRequest loginRequest = new LoginRequest();
         ConfirmationMessage result = loginRequest.login(user.getText(), password.getText());
@@ -53,7 +59,6 @@ public class LoginController implements Initializable {
             result = userRequest.getUser(token);
 
             LinkedHashMap<String,?> values = (LinkedHashMap<String,?>) result.getReturnObject();
-            //TODO Create user with values
 
             Object id = values.get("id");
             Object userType = values.get("userType");
@@ -64,9 +69,13 @@ public class LoginController implements Initializable {
             Object city = values.get("city");
             Object tokenU = values.get("token");
 
-            User u = new User((int) id, (UserType) userType, (Calamity) assignedCalamity, (Building) building, (String) username, (String) email, (String) city, (String) tokenU);
+            User user = new User((int) id, (UserType) userType, (Calamity) assignedCalamity, (Building) building, (String) username, (String) email, (String) city, (String) tokenU);
 
-            System.out.println(u.getToken());
+                try {
+                    main.loadDashBoard(user);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
         } else if(result.getStatus().equals(ConfirmationMessage.StatusType.ERROR)) {
             Alert a = new Alert(Alert.AlertType.ERROR);

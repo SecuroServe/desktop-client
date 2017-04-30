@@ -19,7 +19,7 @@
       <children>
          <HBox alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="486.0">
             <children>
-                  <Button fx:id="backBtn" mnemonicParsing="false" text="&lt; Back" />
+                  <Button fx:id="backBtn" mnemonicParsing="false" style="-fx-background-color: #555;" text="&lt; Back " />
                <Region prefHeight="27.0" prefWidth="172.0" HBox.hgrow="ALWAYS" />
                   <ImageView fitHeight="56.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -33,6 +33,7 @@
             <Label fx:id="calamityCreator" styleClass="creatorlabel" text="Creator" />
             <Label fx:id="calamityDate" styleClass="datelabel" text="Date" wrapText="true" />
             <ImageView fitHeight="284.0" fitWidth="367.0" pickOnBounds="true" preserveRatio="true" />
+            <Line endX="750.0" layoutX="1.0" layoutY="71.0" startX="10.0" stroke="WHITE" />
             <HBox minHeight="200.0" prefHeight="300.0" prefWidth="742.0">
                <children>
                   <VBox prefHeight="200.0" prefWidth="500.0">

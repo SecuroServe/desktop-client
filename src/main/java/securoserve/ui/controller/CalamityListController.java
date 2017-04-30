@@ -42,14 +42,16 @@ public class CalamityListController implements Initializable {
     public TableView<Calamity> calamityTable;
 
     private Main main;
+    private User user;
 
     private List<Calamity> calamities;
     private ObservableList<Calamity> obsList;
 
     private Timer timerToRefresh = new Timer();
 
-    public CalamityListController(Main main) {
+    public CalamityListController(Main main, User user) {
         this.main = main;
+        this.user = user;
     }
 
     @Override
@@ -60,7 +62,7 @@ public class CalamityListController implements Initializable {
             @Override
             public void handle(javafx.scene.input.MouseEvent event) {
                 try {
-                    main.loadCalamityDetails(calamityTable.getSelectionModel().getSelectedItem());
+                    main.loadCalamityDetails(user, calamityTable.getSelectionModel().getSelectedItem());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -83,7 +85,11 @@ public class CalamityListController implements Initializable {
     }
 
     private void handleCloseAction(ActionEvent actionEvent) {
-        System.exit(0);
+        try {
+            main.loadDashBoard(user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initiateTableColumns() {
@@ -117,7 +123,7 @@ public class CalamityListController implements Initializable {
     }
 
     private void refreshCalamityTable() {
-        CalamityRequest calamityRequest = new CalamityRequest();
+        CalamityRequestTest calamityRequest = new CalamityRequestTest(user.getToken());
         calamities = calamityRequest.allCalamity();
 
         obsList = FXCollections.observableArrayList(calamities);

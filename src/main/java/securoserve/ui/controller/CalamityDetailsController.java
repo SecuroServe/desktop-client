@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import securoserve.Main;
 import securoserve.library.Calamity;
+import securoserve.library.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,7 @@ public class CalamityDetailsController implements Initializable {
 
     private Main main;
     private Calamity calamity;
+    private User user;
 
     @FXML
     public Button backBtn;
@@ -34,9 +36,10 @@ public class CalamityDetailsController implements Initializable {
     @FXML
     public TextArea calamityDescription;
 
-    public CalamityDetailsController(Calamity calamity, Main main) {
+    public CalamityDetailsController(User user, Calamity calamity, Main main) {
         this.calamity = calamity;
         this.main = main;
+        this.user = user;
     }
 
     @Override
@@ -57,7 +60,7 @@ public class CalamityDetailsController implements Initializable {
 
     private void handleBackAction(ActionEvent actionEvent) {
         try {
-            main.loadCalamityList();
+            main.loadCalamityList(this.user);
         } catch (IOException e) {
             e.printStackTrace();
         }

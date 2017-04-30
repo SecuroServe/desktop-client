@@ -9,8 +9,10 @@ import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import securoserve.library.Calamity;
+import securoserve.library.User;
 import securoserve.ui.controller.CalamityDetailsController;
 import securoserve.ui.controller.CalamityListController;
+import securoserve.ui.controller.DashboardController;
 import securoserve.ui.controller.LoginController;
 
 import java.io.IOException;
@@ -23,8 +25,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         this.primaryStage = primaryStage;
         loadLogin();
-        //loadCalamityList();
-
     }
 
     public void loadLogin() throws IOException {
@@ -34,16 +34,23 @@ public class Main extends Application {
         setStage(fxmlLoader.load());
     }
 
-    public void loadCalamityList() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/CalamityList.fxml"));
-        CalamityListController controller = new CalamityListController(this);
+    public void loadDashBoard(User user) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"));
+        DashboardController controller = new DashboardController(this, user);
         fxmlLoader.setController(controller);
         setStage(fxmlLoader.load());
     }
 
-    public void loadCalamityDetails(Calamity calamity) throws IOException {
+    public void loadCalamityList(User user) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/CalamityList.fxml"));
+        CalamityListController controller = new CalamityListController(this, user);
+        fxmlLoader.setController(controller);
+        setStage(fxmlLoader.load());
+    }
+
+    public void loadCalamityDetails(User user, Calamity calamity) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/CalamityDetails.fxml"));
-        CalamityDetailsController controller = new CalamityDetailsController(calamity, this);
+        CalamityDetailsController controller = new CalamityDetailsController(user, calamity, this);
         fxmlLoader.setController(controller);
         setStage(fxmlLoader.load());
     }

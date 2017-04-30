@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class CalamityRequestTest implements ICalamity {
 
+    private String userToken;
+
     Location l = new Location(1, 20.3, 20.3, 1.0);
     Date date = new Date(System.currentTimeMillis());
 
@@ -24,6 +26,10 @@ public class CalamityRequestTest implements ICalamity {
     Calamity calamity_1 = new Calamity(1, l, henk, true, false, date, "Aanslag TU Eindhoven", "In het hoofdgebouw van de TU in eindhoven zijn bommen ontploft. Het gaat om een spijkerbom. Veel gewonden waarbij waarschijnlijk ook doden. Dit is nog niet bevestigd.");
 
     User piet = new User(2, null, calamity_1, building_2, "Piet", "pietertje007@gmail.com", "Helmond", "xyzdoenooknogmee");
+
+    public CalamityRequestTest(String userToken) {
+        this.userToken = userToken;
+    }
 
     @Override
     public List<Calamity> allCalamity() {
