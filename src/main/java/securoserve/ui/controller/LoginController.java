@@ -54,7 +54,7 @@ public class LoginController implements Initializable {
 
             LinkedHashMap<String,?> values = (LinkedHashMap<String,?>) result.getReturnObject();
             //TODO Create user with values
-            
+
         } else if(result.getStatus().equals(ConfirmationMessage.StatusType.ERROR)) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error");
