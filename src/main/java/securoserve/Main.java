@@ -24,6 +24,7 @@ public class Main extends Application {
         this.primaryStage = primaryStage;
         loadLogin();
         //loadCalamityList();
+
     }
 
     public void loadLogin() throws IOException {
