@@ -18,15 +18,17 @@ import java.util.ResourceBundle;
  */
 public class DashboardController implements Initializable {
 
-    private Main main;
-    private User user;
-
     @FXML
     public Button logoutBtn;
     @FXML
     public VBox calamityBtn;
+    @FXML
+    public VBox assignRescuerBtn;
 
-    public DashboardController(Main main, User user){
+    private Main main;
+    private User user;
+
+    public DashboardController(Main main, User user) {
         this.main = main;
         this.user = user;
     }
@@ -35,6 +37,15 @@ public class DashboardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         logoutBtn.setOnAction(this::handleLogoutAction);
         calamityBtn.setOnMouseClicked(this::handleCalamityBtnAction);
+        assignRescuerBtn.setOnMouseClicked(this::handleAssignRescuerBtn);
+    }
+
+    private void handleAssignRescuerBtn(MouseEvent mouseEvent) {
+        try {
+            main.loadAssignRescuer(this.user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void handleCalamityBtnAction(MouseEvent mouseEvent) {

@@ -1,6 +1,5 @@
 package securoserve;
 
-import com.guigarage.flatterfx.FlatterFX;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -10,16 +9,17 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import securoserve.library.Calamity;
 import securoserve.library.User;
-import securoserve.ui.controller.CalamityDetailsController;
-import securoserve.ui.controller.CalamityListController;
-import securoserve.ui.controller.DashboardController;
-import securoserve.ui.controller.LoginController;
+import securoserve.ui.controller.*;
 
 import java.io.IOException;
 
 public class Main extends Application {
 
     private Stage primaryStage;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -55,6 +55,13 @@ public class Main extends Application {
         setStage(fxmlLoader.load());
     }
 
+    public void loadAssignRescuer(User user) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/SendRescuer.fxml"));
+        SendRescuerController controller = new SendRescuerController(user, this);
+        fxmlLoader.setController(controller);
+        setStage(fxmlLoader.load());
+    }
+
     private void setStage(Parent root) {
         primaryStage.setResizable(false);
         primaryStage.setTitle("Securoserve");
@@ -65,9 +72,5 @@ public class Main extends Application {
         Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
         primaryStage.setX((primScreenBounds.getWidth() - primaryStage.getWidth()) / 2);
         primaryStage.setY((primScreenBounds.getHeight() - primaryStage.getHeight()) / 2);
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

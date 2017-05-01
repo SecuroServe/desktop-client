@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
+import securoserve.Main;
+import securoserve.library.User;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,8 +34,13 @@ public class SendRescuerController implements Initializable {
     @FXML
     private Label selectedCalamityLabel;
 
-    public SendRescuerController() {
-        selectedCalamityLabel.setText("test");
+    private User user;
+    private Main main;
+
+    public SendRescuerController(User user, Main main) {
+        this.user = user;
+        this.main = main;
+
     }
 
     /**
@@ -50,6 +57,7 @@ public class SendRescuerController implements Initializable {
         selectCalamityButton.setOnAction(this::selectCalamity);
         addRescuerButton.setOnAction(this::addRescuer);
         removeRescuerButton.setOnAction(this::removeRescuer);
+        selectedCalamityLabel.setText("test");
     }
 
     /***
@@ -58,6 +66,7 @@ public class SendRescuerController implements Initializable {
      * @param actionEvent
      */
     private void addRescuer(ActionEvent actionEvent) {
+
     }
 
     /***
@@ -67,6 +76,7 @@ public class SendRescuerController implements Initializable {
      */
     private void removeRescuer(ActionEvent actionEvent) {
 
+
     }
 
     /***
@@ -75,6 +85,7 @@ public class SendRescuerController implements Initializable {
      * @param actionEvent
      */
     private void selectCalamity(ActionEvent actionEvent) {
+
     }
 
     /***
@@ -84,5 +95,6 @@ public class SendRescuerController implements Initializable {
      * @param actionEvent
      */
     private void finishAction(ActionEvent actionEvent) {
+
     }
 }

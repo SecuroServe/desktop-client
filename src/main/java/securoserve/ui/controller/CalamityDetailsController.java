@@ -19,10 +19,6 @@ import java.util.ResourceBundle;
  */
 public class CalamityDetailsController implements Initializable {
 
-    private Main main;
-    private Calamity calamity;
-    private User user;
-
     @FXML
     public Button backBtn;
     @FXML
@@ -35,6 +31,9 @@ public class CalamityDetailsController implements Initializable {
     public Label calamityDate;
     @FXML
     public TextArea calamityDescription;
+    private Main main;
+    private Calamity calamity;
+    private User user;
 
     public CalamityDetailsController(User user, Calamity calamity, Main main) {
         this.calamity = calamity;

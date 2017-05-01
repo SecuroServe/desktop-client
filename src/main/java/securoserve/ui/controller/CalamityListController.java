@@ -5,31 +5,24 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
 import securoserve.Main;
 import securoserve.library.Calamity;
 import securoserve.library.Location;
 import securoserve.library.User;
-import securoserve.requests.CalamityRequest;
 import securoserve.requests.CalamityRequestTest;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
 /**
  * Created by guillaimejanssen on 20/03/2017.
+ *
  * @author guillaime
  */
 public class CalamityListController implements Initializable {

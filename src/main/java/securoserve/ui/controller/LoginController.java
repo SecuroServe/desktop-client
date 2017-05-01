@@ -1,6 +1,5 @@
 package securoserve.ui.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,20 +8,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import securoserve.Main;
 import securoserve.api.interfaces.ConfirmationMessage;
-import securoserve.library.*;
+import securoserve.library.Building;
+import securoserve.library.Calamity;
+import securoserve.library.User;
+import securoserve.library.UserType;
 import securoserve.requests.LoginRequest;
 import securoserve.requests.UserRequest;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-
-    private Main main;
 
     @FXML
     public Button loginBtn;
@@ -32,6 +30,7 @@ public class LoginController implements Initializable {
     public TextField user;
     @FXML
     public TextField password;
+    private Main main;
 
     public LoginController(Main main) {
         this.main = main;
@@ -52,13 +51,13 @@ public class LoginController implements Initializable {
         ConfirmationMessage result = loginRequest.login(user.getText(), password.getText());
         System.out.println(result.getReturnObject());
 
-        if(result.getStatus().equals(ConfirmationMessage.StatusType.SUCCES)) {
+        if (result.getStatus().equals(ConfirmationMessage.StatusType.SUCCES)) {
 
             String token = (String) result.getReturnObject();
             UserRequest userRequest = new UserRequest();
             result = userRequest.getUser(token);
 
-            LinkedHashMap<String,?> values = (LinkedHashMap<String,?>) result.getReturnObject();
+            LinkedHashMap<String, ?> values = (LinkedHashMap<String, ?>) result.getReturnObject();
 
             Object id = values.get("id");
             Object userType = values.get("userType");
@@ -71,13 +70,13 @@ public class LoginController implements Initializable {
 
             User user = new User((int) id, (UserType) userType, (Calamity) assignedCalamity, (Building) building, (String) username, (String) email, (String) city, (String) tokenU);
 
-                try {
-                    main.loadDashBoard(user);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                main.loadDashBoard(user);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        } else if(result.getStatus().equals(ConfirmationMessage.StatusType.ERROR)) {
+        } else if (result.getStatus().equals(ConfirmationMessage.StatusType.ERROR)) {
             Alert a = new Alert(Alert.AlertType.ERROR);
             a.setTitle("Error");
             a.setHeaderText("Something went wrong");

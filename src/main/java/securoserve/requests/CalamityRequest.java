@@ -7,9 +7,7 @@ import securoserve.api.interfaces.ICalamity;
 import securoserve.library.Calamity;
 import securoserve.library.Location;
 
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -45,7 +43,7 @@ public class CalamityRequest implements ICalamity {
 
     RestTemplate restTemplate;
 
-    public CalamityRequest(){
+    public CalamityRequest() {
         restTemplate = new RestTemplate();
     }
 
@@ -54,7 +52,7 @@ public class CalamityRequest implements ICalamity {
         Calamity[] calamities = restTemplate.getForObject(REQUEST_PREFIX + GET_ALL, Calamity[].class);
         List<Calamity> returnValue = new ArrayList<>();
 
-        for(Calamity c : calamities){
+        for (Calamity c : calamities) {
             returnValue.add(c);
         }
 

@@ -2,7 +2,10 @@ package securoserve.requests;
 
 import securoserve.api.interfaces.ConfirmationMessage;
 import securoserve.api.interfaces.ICalamity;
-import securoserve.library.*;
+import securoserve.library.Building;
+import securoserve.library.Calamity;
+import securoserve.library.Location;
+import securoserve.library.User;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,19 +16,14 @@ import java.util.List;
  */
 public class CalamityRequestTest implements ICalamity {
 
-    private String userToken;
-
     Location l = new Location(1, 6.356789, 5.389779, 1.0);
     Date date = new Date(System.currentTimeMillis());
-
-    Building building_1 = new Building( 1, l, Building.BuildingType.FIRE_DEPARTMENT, "Brandweer Kazerne Eindhoven");
-    Building building_2 = new Building( 2, l, Building.BuildingType.HOSPITAL, "Ziekenhuis Eindhoven");
-
+    Building building_1 = new Building(1, l, Building.BuildingType.FIRE_DEPARTMENT, "Brandweer Kazerne Eindhoven");
+    Building building_2 = new Building(2, l, Building.BuildingType.HOSPITAL, "Ziekenhuis Eindhoven");
     User henk = new User(1, null, null, building_1, "Henk", "henkdeman@gmail.com", "Eindhoven", "abcdefghijklmnop");
-
     Calamity calamity_1 = new Calamity(1, l, henk, true, false, date, "Aanslag TU Eindhoven", "In het hoofdgebouw van de TU in eindhoven zijn bommen ontploft. Het gaat om een spijkerbom. Veel gewonden waarbij waarschijnlijk ook doden. Dit is nog niet bevestigd.");
-
     User piet = new User(2, null, calamity_1, building_2, "Piet", "pietertje007@gmail.com", "Helmond", "xyzdoenooknogmee");
+    private String userToken;
 
     public CalamityRequestTest(String userToken) {
         this.userToken = userToken;
