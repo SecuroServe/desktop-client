@@ -1,6 +1,5 @@
 package securoserve.rest;
 
-import com.google.gson.Gson;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 import securoserve.api.interfaces.ConfirmationMessage;
@@ -17,25 +16,20 @@ public class RestClient {
     public ConfirmationMessage request(String baseUrl, RequestType requestType, MultiValueMap<String, Object> parameters) {
         switch (requestType) {
             case POST:
-
                 return post(baseUrl, parameters);
 
             case GET:
                 return get(generateUrl(baseUrl, parameters));
 
             case PUT:
-                return put(baseUrl, generateParameterJSON(parameters));
+                throw new NotImplementedException();
 
             case DELETE:
-                return delete(baseUrl, generateParameterJSON(parameters));
+                throw new NotImplementedException();
 
             default:
                 return new ConfirmationMessage(ConfirmationMessage.StatusType.ERROR, "Request error.", null);
         }
-    }
-
-    public String generateParameterJSON(MultiValueMap<String, Object> parameters) {
-        return new Gson().toJson(parameters);
     }
 
     public String generateUrl(String baseUrl, MultiValueMap<String, Object> parameters) {
@@ -58,14 +52,6 @@ public class RestClient {
 
     public ConfirmationMessage post(String uri, MultiValueMap<String, Object> parameters) {
         return rest.postForObject(uri, parameters, ConfirmationMessage.class);
-    }
-
-    public ConfirmationMessage put(String uri, String json) {
-        throw new NotImplementedException();
-    }
-
-    public ConfirmationMessage delete(String uri, String json) {
-        throw new NotImplementedException();
     }
 
     public enum RequestType {
