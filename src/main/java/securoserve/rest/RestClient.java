@@ -5,14 +5,27 @@ import org.springframework.web.client.RestTemplate;
 import securoserve.api.interfaces.ConfirmationMessage;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+/**
+ * This class provides methods to easily create a rest request with parameters.
+ */
 public class RestClient {
 
     private RestTemplate rest;
 
+    /**
+     * Constructor
+     */
     public RestClient() {
         this.rest = new RestTemplate();
     }
 
+    /**
+     * Creates a new REST request.
+     * @param baseUrl The request URL (including URL parameters)
+     * @param requestType The request type (GET, POST, PUT, DELETE)
+     * @param parameters A MultiValueMap containing parameters
+     * @return ConfirmationMessage
+     */
     public ConfirmationMessage request(String baseUrl, RequestType requestType, MultiValueMap<String, Object> parameters) {
         switch (requestType) {
             case POST:
@@ -32,6 +45,12 @@ public class RestClient {
         }
     }
 
+    /**
+     * Adds parameters from a MultiValueMap onto a URL.
+     * @param baseUrl The request URL
+     * @param parameters A MultiValueMap containing parameters
+     * @return ConfirmationMessage
+     */
     public String generateUrl(String baseUrl, MultiValueMap<String, Object> parameters) {
 
         StringBuilder sb = new StringBuilder();
@@ -46,14 +65,28 @@ public class RestClient {
         return sb.toString();
     }
 
+    /**
+     * Executes a GET request using the Spring REST library.
+     * @param uri The request URL
+     * @return ConfirmationMessage
+     */
     public ConfirmationMessage get(String uri) {
         return rest.getForObject(uri, ConfirmationMessage.class);
     }
 
+    /**
+     * Executes a POST request using the Spring REST library.
+     * @param uri The request URL
+     * @param parameters A MultiValueMap containing parameters.
+     * @return ConfirmationMessage
+     */
     public ConfirmationMessage post(String uri, MultiValueMap<String, Object> parameters) {
         return rest.postForObject(uri, parameters, ConfirmationMessage.class);
     }
 
+    /**
+     * An enum with request types
+     */
     public enum RequestType {
         POST,
         GET,
