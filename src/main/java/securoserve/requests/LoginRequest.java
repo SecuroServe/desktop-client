@@ -1,8 +1,10 @@
 package securoserve.requests;
 
-import org.springframework.web.client.RestTemplate;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import securoserve.api.interfaces.ConfirmationMessage;
 import securoserve.api.interfaces.ILogin;
+import securoserve.rest.RestClient;
 
 /**
  * Created by guillaimejanssen on 30/04/2017.
@@ -11,12 +13,15 @@ public class LoginRequest implements ILogin {
 
     private static final String REQUEST_PREFIX = "http://localhost:8080";
 
-    private static final String LOGIN = "/login?username={username}&password={password}";
-
-    RestTemplate restTemplate = new RestTemplate();
+    RestClient restClient = new RestClient();
 
     @Override
     public ConfirmationMessage login(String username, String password) {
-        return restTemplate.getForObject(REQUEST_PREFIX + LOGIN, ConfirmationMessage.class, username, password);
+        MultiValueMap<String, Object> parameters = new LinkedMultiValueMap<>();
+
+        parameters.add("username", username);
+        parameters.add("password", password);
+
+        return restClient.request(REQUEST_PREFIX + "/login", RestClient.RequestType.GET, parameters);
     }
 }
