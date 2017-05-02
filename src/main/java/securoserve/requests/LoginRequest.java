@@ -13,7 +13,11 @@ public class LoginRequest implements ILogin {
 
     private static final String REQUEST_PREFIX = "http://localhost:8080";
 
-    RestClient restClient = new RestClient();
+    RestClient restClient;
+
+    public LoginRequest() {
+        restClient = new RestClient();
+    }
 
     @Override
     public ConfirmationMessage login(String username, String password) {
