@@ -1,11 +1,14 @@
 package securoserve.requests;
 
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 import securoserve.api.interfaces.ConfirmationMessage;
 import securoserve.api.interfaces.ICalamity;
 import securoserve.library.Calamity;
 import securoserve.library.Location;
+import securoserve.rest.RestClient;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -44,30 +47,32 @@ public class CalamityRequest implements ICalamity {
             "userid={userid}";
 
     RestTemplate restTemplate;
+    RestClient restClient;
 
     public CalamityRequest(){
         restTemplate = new RestTemplate();
+        restClient = new RestClient();
     }
 
     @Override
-    public List<Calamity> allCalamity() {
-        Calamity[] calamities = restTemplate.getForObject(REQUEST_PREFIX + GET_ALL, Calamity[].class);
-        List<Calamity> returnValue = new ArrayList<>();
-
-        for(Calamity c : calamities){
-            returnValue.add(c);
-        }
-
-        return returnValue;
+    public ConfirmationMessage allCalamity() {
+        MultiValueMap<String, Object> parameters = new LinkedMultiValueMap<>();
+        return restClient.request(REQUEST_PREFIX + GET_ALL, RestClient.RequestType.GET, parameters);
     }
 
     @Override
-    public Calamity calamityById(@RequestParam("token") String token, @RequestParam("id") int id) {
-        return restTemplate.getForObject(REQUEST_PREFIX + GET_CALAMITY_BY_ID, Calamity.class, token, id);
+    public ConfirmationMessage calamityById(@RequestParam("token") String token, @RequestParam("id") int id) {
+        MultiValueMap<String, Object> parameters = new LinkedMultiValueMap<>();
+        parameters.add("token", token);
+        parameters.add("id", id);
+        return restClient.request(REQUEST_PREFIX + GET_CALAMITY_BY_ID, RestClient.RequestType.GET, parameters);
     }
 
     @Override
-    public ConfirmationMessage addCalamity(String s, String s1, String s2, Location location, boolean b, boolean b1) {
+    public ConfirmationMessage addCalamity(String s, String s1, String s2,
+                                           double latitude,
+                                           double longitude,
+                                           double radius , boolean b, boolean b1) {
         return null;
     }
 
