@@ -31,9 +31,11 @@ public class CalamityRequest implements ICalamity {
     private static final String POST_ADD_CALAMITY = "/addcalamity?token={token}&" +
             "title={title}&" +
             "message={message}&" +
-            "location={location}&" +
+            "latitude={latitude}&" +
+            "longitude={longitude}&" +
+            "radius={location}&" +
             "confirmed={confirmed}&" +
-            "closed={closed}";
+            "status={status}";
 
     private static final String UPDATE_CALAMITY = "/updatecalamity?token={token}&" +
             "id={id}&" +
@@ -61,7 +63,7 @@ public class CalamityRequest implements ICalamity {
     }
 
     @Override
-    public ConfirmationMessage calamityById(@RequestParam("token") String token, @RequestParam("id") int id) {
+    public ConfirmationMessage calamityById(String token, int id) {
         MultiValueMap<String, Object> parameters = new LinkedMultiValueMap<>();
         parameters.add("token", token);
         parameters.add("id", id);
@@ -69,11 +71,20 @@ public class CalamityRequest implements ICalamity {
     }
 
     @Override
-    public ConfirmationMessage addCalamity(String s, String s1, String s2,
+    public ConfirmationMessage addCalamity(String token, String title, String message,
                                            double latitude,
                                            double longitude,
-                                           double radius , boolean b, boolean b1) {
-        return null;
+                                           double radius , boolean confirmed, boolean status) {
+        MultiValueMap<String, Object> parameters = new LinkedMultiValueMap<>();
+        parameters.add("token", token);
+        parameters.add("title", title);
+        parameters.add("message", message);
+        parameters.add("latitude", latitude);
+        parameters.add("longitude", longitude);
+        parameters.add("radius", radius);
+        parameters.add("confirmed", confirmed);
+        parameters.add("status", status);
+        return restClient.post(REQUEST_PREFIX + GET_CALAMITY_BY_ID, parameters);
     }
 
     @Override
