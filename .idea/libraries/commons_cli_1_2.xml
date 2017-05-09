@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="commons-cli-1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/httpcomponents-core-4.4.6/lib/commons-cli-1.2.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/httpcomponents-core-4.4.6/lib/httpcore-4.4.6.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/httpcomponents-core-4.4.6/lib/httpcore-ab-4.4.6.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/httpcomponents-core-4.4.6/lib/httpcore-nio-4.4.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

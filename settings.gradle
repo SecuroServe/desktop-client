@@ -1,0 +1,2 @@
+include ':web-api'
+project(':web-api').projectDir = new File(settingsDir, '../web-api')
